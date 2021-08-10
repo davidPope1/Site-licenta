@@ -1,0 +1,64 @@
+table {
+    width: 100%;
+    // background-color: #fff;
+  }
+  
+  .textStyle {
+    color: #000;
+  }
+  
+  .container {
+    height: 100%;
+    background-color: lightgray;
+   // display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .filter {
+    width: 100%;
+    color: #000;
+  }
+  
+  ::ng-deep .mat-focused .mat-form-field-label {
+    //change color of label/
+    color: rgb(1, 206, 206) !important;
+  }
+  
+  ::ng-deep.mat-form-field-underline {
+    //change color of underline/
+    background-color: rgb(1, 206, 206) !important;
+  }
+  
+  ::ng-deep.mat-form-field-ripple {
+    //change color of underline when focused/
+    background-color: rgb(1, 206, 206) !important;
+  }
+  ::placeholder {
+    color: rgb(240, 2, 2) !important;
+    opacity: 1; // Firefox /
+  }
+  
+  
+  // :-ms-input-placeholder {
+  //   // Internet Explorer 10-11 /
+  //   color: red;
+  // }
+  
+  // ::-ms-input-placeholder {
+  //   // Microsoft Edge */
+  //   color: red;
+  // }
+  
+  ::ng-deep.mat-form-field-label {
+    color: rgb(1, 206, 206) !important;
+    font-size: 15px;
+  }
+  // .mat-form-field {
+  //   font-size: 14px;
+  //   width: 100%;
+  // }
+  
+  // td, th {
+  //   width: 25%;
+  // }

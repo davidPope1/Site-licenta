@@ -1,0 +1,73 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Marca" matInput [(ngModel)]="local_data.marca">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Model" matInput [(ngModel)]="local_data.model">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} numarInmatriculare" matInput [(ngModel)]="local_data.numarInmatriculare">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} consumNormat" matInput [(ngModel)]="local_data.consumNormat">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} anFabricatie" matInput [(ngModel)]="local_data.anFabricatie">
+  </mat-form-field>
+
+  <!-- <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} tipCarburant" matInput [(ngModel)]="local_data.tipCarburant">
+  </mat-form-field> -->
+
+  <!-- <mat-form-field appearance="fill" *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} tipCarburant" matInput [(ngModel)]="local_data.tipCarburant">
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.name">
+        {{food.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+
+  <!-- <mat-form-field appearance="fill" *ngIf="action != 'Delete'; else elseTemplate">
+    <mat-label>Tip Carburant</mat-label>
+    <input placeholder="{{action}} tipCarburant" matInput [(ngModel)]="local_data.tipCarburant">
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.name">
+        {{food.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  
+  <mat-form-field appearance="fill" *ngIf="action != 'Delete'; else elseTemplate">
+    <mat-label>Tip Carburant</mat-label>
+    <mat-select [(ngModel)]="local_data.tipCarburant" placeholder="{{action}} tipCarburant">
+      <mat-option *ngFor="let food of foods" [value]="food.name">
+        {{food.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} serieCaroserie" matInput [(ngModel)]="local_data.serieCaroserie">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} capacitateRezervor" matInput [(ngModel)]="local_data.capacitateRezervor">
+  </mat-form-field>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} categorie" matInput [(ngModel)]="local_data.categorie">
+  </mat-form-field>
+ 
+
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

@@ -1,0 +1,54 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.numePrenume">
+        {{food.numePrenume}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Nume" matInput [(ngModel)]="local_data.numeSofer">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Model" matInput [(ngModel)]="local_data.modelMarcaMasina">
+  </mat-form-field>
+ 
+  <!-- <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} dataPreluare" matInput [(ngModel)]="local_data.dataPreluare">
+  </mat-form-field>
+   -->
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input matInput type="datetime-local" placeholder="{{action}} dataPreluare" matInput [(ngModel)]="local_data.dataOraPreluare">
+  </mat-form-field>
+  <!-- <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} dataPredare" matInput [(ngModel)]="local_data.dataPredare">
+  </mat-form-field> -->
+
+
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input matInput type="datetime-local" placeholder="{{action}} dataPredare" matInput [(ngModel)]="local_data.dataOraPredare">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} numarKilometriParcursi" matInput [(ngModel)]="local_data.numarKilometriParcursi">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} combustibilConsumat" matInput [(ngModel)]="local_data.combustibilConsumat">
+  </mat-form-field>
+
+  <ng-template #elseTemplate>
+    Sure to delete <b>{{local_data.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

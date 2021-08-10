@@ -1,0 +1,90 @@
+<!-- container -->
+<div class="container"> 
+
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Alex" #input>
+    </mat-form-field>
+    <br>
+    
+    <button mat-button (click)="openDialogDriver('Add',{})" mat-flat-button color="primary">Add Row</button>
+    
+      <table mat-table [dataSource]="dataSourceDriver" matSort>
+    
+        <!-- <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div> -->
+    
+        <!-- <-- Checkbox Column - -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selectionDriver.hasValue() && isAllSelected()"
+                          [indeterminate]="selectionDriver.hasValue() && !isAllSelected()"
+                          [aria-label]="checkboxLabel()"
+                          color="primary">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selectionDriver.toggle(row) : null"
+                          [checked]="selectionDriver.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)"
+                          color="primary"
+                          >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+    
+        <!-- <-- Category Column - -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+          <td mat-cell *matCellDef="let element"> {{element.categoriiPermis}} </td>
+        </ng-container>
+    
+        <!-- <-- Cnp Column - -->
+        <ng-container matColumnDef="cnp">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Cnp </th>
+          <td mat-cell *matCellDef="let element"> {{element.cnp}} </td>
+        </ng-container>
+    
+        <!-- <-- License Date Column - -->
+        <ng-container matColumnDef="licenseDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> License Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.dataExpirarePermis}} </td>
+        </ng-container>
+    
+        <!-- <-- Name Column - -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.numePrenume}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="view">
+          <th mat-header-cell *matHeaderCellDef> View Car </th>
+          <td mat-cell *matCellDef="let element"><button mat-button (click)="showVal(element.id)" mat-dialog-close>View cars</button></td>
+        </ng-container>
+    
+        <!-- Action Column -->
+          <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" class="action-link"> 
+            <a (click)="openDialogDriver('Update',element)">Edit</a> | 
+            <a (click)="openDialogDriver('Delete',element)">Delete</a>  
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsDriver"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsDriver;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+    

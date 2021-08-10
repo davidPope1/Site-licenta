@@ -1,0 +1,37 @@
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar ></div>
+
+        </mat-card-header>
+                <img mat-card-image src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?size=338&ext=jpg" alt="Photo" class="image">
+
+        <mat-card-content class="formContainer">
+          <mat-card-title class="header" >User Login</mat-card-title>
+
+          <form [formGroup]="signinForm" class>
+            <div>
+              <mat-form-field appearance="outline" >
+                <input formControlName="email" matInput placeholder="User" value="" class = "textInput form-control">
+                <mat-icon matPrefix>email</mat-icon>
+              </mat-form-field>
+
+              <br>
+
+              <mat-form-field appearance="outline" color="primary">
+                <input formControlName="password" matInput placeholder="Password" value="" type="password" class = "textInput form-control">
+                <mat-icon matPrefix>lock</mat-icon>
+              </mat-form-field>
+            </div>
+
+          </form>
+          <mat-card-actions class="actionsContainer">
+          <button mat-button mat-raised-button color="primary" class="loginButton" (click)="onSubmit()" [disabled]="!signinForm.valid">Login</button>
+            <a href="">Forgot Username/Password</a>
+        </mat-card-actions>
+
+        </mat-card-content>
+
+      </mat-card>
+
+</div>

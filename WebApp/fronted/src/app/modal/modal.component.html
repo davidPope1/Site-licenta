@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Masini conduse</h1>
+<div mat-dialog-content>
+    <mat-label>nrMatriculare</mat-label>
+    <!-- <mat-label [(ngModel)]="local_data.numarInmatriculare" > </mat-label>   -->
+    <!-- <li *ngFor="let item of local_data; index as i; trackBy: trackByFn">
+      <p>{{item.numarInmatriculare[i]}}</p>
+    </li> -->
+    <tbody>
+      <tr *ngFor="let item of local_data">
+          <td>{{item.numarInmatriculare}}</td>
+      </tr>
+    </tbody>
+    
+  
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+</div>
